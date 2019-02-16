@@ -1,0 +1,15 @@
+{
+  "fireworks": [
+    {
+      "fireworkEffects": [],
+      "explodeEffect": "CREEPER_FACE",
+      "colors": [
+        16777215,
+        10123010
+      ],
+      "fadeColors": [
+        16777215
+      ]
+    }
+  ]
+}

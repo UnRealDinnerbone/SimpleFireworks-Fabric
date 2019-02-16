@@ -1,0 +1,14 @@
+{
+  "fireworks": [
+    {
+      "fireworkEffects": [],
+      "explodeEffect": "SPARKLE",
+      "colors": [
+        16777215
+      ],
+      "fadeColors": [
+        16777215
+      ]
+    }
+  ]
+}

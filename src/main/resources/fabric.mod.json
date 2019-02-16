@@ -1,0 +1,7 @@
+{
+  "id": "simplefireworks",
+  "name": "Simple Fireworks",
+  "version": "1.0.0",
+  "side": "universal",
+  "initializer": "com.unrealdinnerbone.simplefireworks.SimpleFirework"
+}

@@ -37,7 +37,7 @@
 //                    try {
 //                        String name = file.getName().replace(".json", "");
 //                        JsonReader jsonReader = new JsonReader(new FileReader(file));
-//                        FireworkObjectWrapper objectWrapper = gson.fromJson(jsonReader, FireworkObjectWrapper.class);
+//                        FireworkShapeWrapper objectWrapper = gson.fromJson(jsonReader, FireworkShapeWrapper.class);
 //                        objectWrapper.fireworkObjects.forEach(object -> object.setId(name + ":" + object.getID()));
 //                        fireworkObjects.addAll(objectWrapper.getFireworkObjects());
 //                    } catch (FileNotFoundException e) {
@@ -66,7 +66,7 @@
 //        return getFormName(name) != null;
 //    }
 //
-//    public static class FireworkObjectWrapper {
+//    public static class FireworkShapeWrapper {
 ////
 ////        List<FireworkObject> fireworkObjects;
 ////

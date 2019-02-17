@@ -1,5 +1,7 @@
 package com.unrealdinnerbone.simplefireworks.lib.firework;
 
+import net.minecraft.util.Identifier;
+
 import java.util.HashMap;
 
 public class FireworkObject {

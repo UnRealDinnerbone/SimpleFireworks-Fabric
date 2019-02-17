@@ -2,46 +2,49 @@ package com.unrealdinnerbone.simplefireworks.lib.firework;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.loader.ModInfo;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
-import net.minecraft.server.command.TagCommand;
+import net.minecraft.nbt.Tag;
 import net.minecraft.util.math.BlockPos;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FireworkBase {
+public class Firework {
 
-    private List<EnumFireworkEffect> fireworkEffects;
-    private EnumExplodeEffect explodeEffect;
+    private List<FireworkEffect> fireworkEffects;
+    private ExplodeEffect explodeEffect;
     private List<Integer> colors;
     private List<Integer> fadeColors;
+    private int flyHeight;
 
-    public FireworkBase() {
+    public Firework() {
         fireworkEffects = new ArrayList<>();
         explodeEffect = null;
         colors = new ArrayList<>();
         fadeColors = new ArrayList<>();
+        this.flyHeight = 1;
     }
 
-    public void setFireworkEffects(List<EnumFireworkEffect> fireworkEffects) {
+    public void setFireworkEffects(List<FireworkEffect> fireworkEffects) {
         this.fireworkEffects = fireworkEffects;
     }
 
-    public void addFireworkEffect(EnumFireworkEffect fireworkEffect) {
+    public void addFireworkEffect(FireworkEffect fireworkEffect) {
         if (!this.fireworkEffects.contains(fireworkEffect)) {
             this.fireworkEffects.add(fireworkEffect);
         }
     }
 
-    public void removeFireworkEffect(EnumFireworkEffect fireworkEffect) {
+    public void removeFireworkEffect(FireworkEffect fireworkEffect) {
         this.fireworkEffects.remove(fireworkEffect);
     }
 
-    public void setExplodeEffect(EnumExplodeEffect explodeEffect) {
+    public void setExplodeEffect(ExplodeEffect explodeEffect) {
         this.explodeEffect = explodeEffect;
     }
 
@@ -74,11 +77,11 @@ public class FireworkBase {
         this.fadeColors.remove(fireworkColor);
     }
 
-    public List<EnumFireworkEffect> getFireworkEffects() {
+    public List<FireworkEffect> getFireworkEffects() {
         return fireworkEffects;
     }
 
-    public EnumExplodeEffect getExplodedEffect() {
+    public ExplodeEffect getExplodedEffect() {
         return explodeEffect;
     }
 
@@ -90,24 +93,12 @@ public class FireworkBase {
         return fadeColors;
     }
 
-    public CompoundTag getExplodeCompound()  {
-        CompoundTag compound = new CompoundTag();
-        //Todo do i need this?
-//        compound.setInteger("Flight", 1);
-        CompoundTag explosionsCompound = new CompoundTag();
-        explosionsCompound.putInt("Type", getExplodedEffect().getExplodeID() - 1);
-        this.getFireworkEffects().forEach(effect -> explosionsCompound.putInt(effect.getEffectName(), 1));
-        explosionsCompound.putIntArray("Colors",  getBrustColors().stream().mapToInt(Integer::intValue).toArray());
-        explosionsCompound.putIntArray("FadeColors", getFadeColors().stream().mapToInt(Integer::intValue).toArray());
-        ListTag nbtList = new ListTag();
-        nbtList.add(explosionsCompound);
-        compound.put("Explosions", nbtList);
-        return compound;
+    public int getFlyHeight() {
+        return flyHeight;
     }
 
-    @Environment(EnvType.CLIENT)
-    public void spawnFirework(BlockPos pos, int xSpeed, int ySpeed, int zSpeed) {
-        MinecraftClient.getInstance().world.addFireworkParticle(pos.getX(), pos.getY(), pos.getZ(), xSpeed, ySpeed, zSpeed, getExplodeCompound());
+    public void setFlyHeight(int flyHeight) {
+        this.flyHeight = flyHeight;
     }
 }
 

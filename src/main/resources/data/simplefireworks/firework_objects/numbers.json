@@ -3,7 +3,7 @@
     {
       "id": "A",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -36,40 +36,20 @@
     {
       "id": "B",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
-        [
-          "W",
-          "W",
-          " "
-        ],
-        [
-          "W",
-          " ",
-          "W"
-        ],
-        [
-          "W",
-          "W",
-          "W"
-        ],
-        [
-          "W",
-          " ",
-          "W"
-        ],
-        [
-          "W",
-          "W",
-          " "
-        ]
+        ["W","W"," "],
+        ["W"," ","W"],
+        ["W","W","W"],
+        ["W"," ","W"],
+        ["W","W"," "]
       ]
     },
     {
       "id": "C",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -102,7 +82,7 @@
     {
       "id": "D",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -135,7 +115,7 @@
     {
       "id": "E",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -168,7 +148,7 @@
     {
       "id": "F",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -201,7 +181,7 @@
     {
       "id": "G",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -234,7 +214,7 @@
     {
       "id": "H",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -267,7 +247,7 @@
     {
       "id": "I",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -300,7 +280,7 @@
     {
       "id": "J",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -333,7 +313,7 @@
     {
       "id": "K",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -366,7 +346,7 @@
     {
       "id": "L",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -399,7 +379,7 @@
     {
       "id": "M",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -432,7 +412,7 @@
     {
       "id": "N",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -465,7 +445,7 @@
     {
       "id": "O",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -498,7 +478,7 @@
     {
       "id": "P",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -531,7 +511,7 @@
     {
       "id": "Q",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -564,7 +544,7 @@
     {
       "id": "R",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -597,7 +577,7 @@
     {
       "id": "S",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -630,7 +610,7 @@
     {
       "id": "T",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -663,7 +643,7 @@
     {
       "id": "U",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -696,7 +676,7 @@
     {
       "id": "V",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -729,7 +709,7 @@
     {
       "id": "W",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -762,7 +742,7 @@
     {
       "id": "X",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -795,7 +775,7 @@
     {
       "id": "Y",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [
@@ -828,7 +808,7 @@
     {
       "id": "Z",
       "identifiers": {
-        "W": "white"
+        "W": "simplefireworks:white"
       },
       "objects": [
         [

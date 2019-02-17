@@ -2,7 +2,7 @@ package com.unrealdinnerbone.simplefireworks.lib.firework;
 
 import java.util.Arrays;
 
-public enum EnumExplodeEffect
+public enum ExplodeEffect
 {
     SMALL_BALL(0),
     LAVAGE_BALL(2),
@@ -12,7 +12,7 @@ public enum EnumExplodeEffect
 
     private int explodeID;
 
-    EnumExplodeEffect(int i) {
+    ExplodeEffect(int i) {
         this.explodeID = i;
     }
 
@@ -20,7 +20,7 @@ public enum EnumExplodeEffect
         return explodeID;
     }
 
-    public static EnumExplodeEffect getEffectFormID(int id) {
+    public static ExplodeEffect getEffectFormID(int id) {
         return Arrays.stream(values()).filter(enumExplodeEffect -> enumExplodeEffect.explodeID == id).findFirst().orElse(null);
     }
 }

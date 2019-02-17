@@ -9,6 +9,26 @@
       "fadeColors": [
         16777215
       ]
+    },
+    {
+      "fireworkEffects": [],
+      "explodeEffect": "SPARKLE",
+      "colors": [
+        127398127
+      ],
+      "fadeColors": [
+        127398127
+      ]
+    },
+    {
+      "fireworkEffects": [],
+      "explodeEffect": "SPARKLE",
+      "colors": [
+        127398127
+      ],
+      "fadeColors": [
+        16777215
+      ]
     }
   ]
 }

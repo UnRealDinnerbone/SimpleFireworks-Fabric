@@ -1,10 +1,10 @@
 package com.unrealdinnerbone.simplefireworks.api;
 
-import com.unrealdinnerbone.simplefireworks.lib.firework.FireworkObject;
+import com.unrealdinnerbone.simplefireworks.api.firework.FireworkObject;
 
 import java.util.List;
 
-public class FireworkObjectWrapper {
+public class FireworkShapeWrapper {
 
     private List<FireworkObject> fireworkObjects;
 

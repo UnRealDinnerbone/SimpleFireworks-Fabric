@@ -45,7 +45,9 @@ public class FireworkDataBase<T> implements SimpleSynchronousResourceReloadListe
                 Resource resource = resourceManager.getResource(identifier);
                 String json = IOUtils.toString(resource.getInputStream(), StandardCharsets.UTF_8);
                 T tObject = GSON.fromJson(json, tClass);
-                REGISTERED_VALUES.put(identifier, tObject);
+                String theID = identifier.toString();
+                Identifier theNewOne = new Identifier(theID.replace(".json", "").replace(type + "/", ""));
+                REGISTERED_VALUES.put(theNewOne, tObject);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -55,4 +57,5 @@ public class FireworkDataBase<T> implements SimpleSynchronousResourceReloadListe
     public HashMap<Identifier, T> getValues() {
         return REGISTERED_VALUES;
     }
+
 }

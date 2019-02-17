@@ -1,8 +1,10 @@
 {
   "fireworks": [
     {
-      "fireworkEffects": [],
-      "explodeEffect": "CREEPER_FACE",
+      "fireworkEffects": [
+        "FLICKER"
+      ],
+      "explodeEffect": "SMALL_BALL",
       "colors": [
         16777215,
         10123010

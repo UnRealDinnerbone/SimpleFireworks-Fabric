@@ -21,7 +21,7 @@ public class SimpleFirework implements ModInitializer {
     public void onInitialize() {
         System.out.println("Loading SimpleFireworks!");
         ResourceManagerHelper.get(ResourceType.DATA).registerReloadListener(FIREWORK_DATA);
-        CommandRegistry.INSTANCE.register(true, CommandSpawnFireworkObject::register);
+        CommandRegistry.INSTANCE.register(false, CommandSpawnFireworkObject::register);
     }
 
     public static Set<Identifier> getFireworkIDs() {

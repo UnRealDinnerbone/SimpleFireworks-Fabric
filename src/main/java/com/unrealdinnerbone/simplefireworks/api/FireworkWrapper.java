@@ -17,8 +17,4 @@ public class FireworkWrapper {
     public List<Firework> getFireworks() {
         return fireworks;
     }
-
-    public void spawnAllFireworks(BlockPos pos, double xSpeed, double ySpeed, double zSpeed) {
-        fireworks.forEach(firework -> FireworkUtils.spawnFirework(firework, pos, xSpeed, ySpeed, zSpeed));
-    }
 }

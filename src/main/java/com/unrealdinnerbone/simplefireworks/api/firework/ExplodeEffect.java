@@ -1,7 +1,5 @@
 package com.unrealdinnerbone.simplefireworks.api.firework;
 
-import java.util.Arrays;
-
 public enum ExplodeEffect
 {
     SMALL_BALL(0),
@@ -18,9 +16,5 @@ public enum ExplodeEffect
 
     public int getExplodeID() {
         return explodeID;
-    }
-
-    public static ExplodeEffect getEffectFormID(int id) {
-        return Arrays.stream(values()).filter(enumExplodeEffect -> enumExplodeEffect.explodeID == id).findFirst().orElse(null);
     }
 }

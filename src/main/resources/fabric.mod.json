@@ -3,5 +3,8 @@
   "name": "Simple Fireworks",
   "version": "1.0.0",
   "side": "universal",
-  "initializer": "com.unrealdinnerbone.simplefireworks.SimpleFirework"
+  "initializers": [
+    "com.unrealdinnerbone.simplefireworks.SimpleFirework",
+    "com.unrealdinnerbone.simplefireworks.SimpleFireworksClient"
+  ]
 }

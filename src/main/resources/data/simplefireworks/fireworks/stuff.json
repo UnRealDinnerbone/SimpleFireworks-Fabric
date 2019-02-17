@@ -11,7 +11,8 @@
       ],
       "fadeColors": [
         16777215
-      ]
+      ],
+      "flyHeight": 1
     }
   ]
 }

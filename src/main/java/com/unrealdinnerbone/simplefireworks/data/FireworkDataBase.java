@@ -39,8 +39,7 @@ public class FireworkDataBase<T> implements SimpleSynchronousResourceReloadListe
     @Override
     public void apply(ResourceManager resourceManager) {
         REGISTERED_VALUES.clear();
-        Collection<Identifier> a = resourceManager.findResources(type, name -> name.endsWith(".json"));
-        for (Identifier identifier : a) {
+        resourceManager.findResources(type, name -> name.endsWith(".json")).forEach(identifier -> {
             try {
                 Resource resource = resourceManager.getResource(identifier);
                 String json = IOUtils.toString(resource.getInputStream(), StandardCharsets.UTF_8);
@@ -51,7 +50,7 @@ public class FireworkDataBase<T> implements SimpleSynchronousResourceReloadListe
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+        });
     }
 
     public HashMap<Identifier, T> getValues() {

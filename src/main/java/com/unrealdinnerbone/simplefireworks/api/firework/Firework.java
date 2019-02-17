@@ -1,14 +1,4 @@
-package com.unrealdinnerbone.simplefireworks.lib.firework;
-
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.Tag;
-import net.minecraft.util.math.BlockPos;
+package com.unrealdinnerbone.simplefireworks.api.firework;
 
 
 import java.util.ArrayList;

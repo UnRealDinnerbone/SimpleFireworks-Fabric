@@ -1,4 +1,4 @@
-package com.unrealdinnerbone.simplefireworks.lib.firework;
+package com.unrealdinnerbone.simplefireworks.api.firework;
 
 import java.util.Arrays;
 

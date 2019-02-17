@@ -1,6 +1,4 @@
-package com.unrealdinnerbone.simplefireworks.lib.firework;
-
-import net.minecraft.util.Identifier;
+package com.unrealdinnerbone.simplefireworks.api.firework;
 
 import java.util.HashMap;
 

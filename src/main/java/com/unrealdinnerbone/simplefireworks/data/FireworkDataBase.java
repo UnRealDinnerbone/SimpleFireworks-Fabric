@@ -30,7 +30,6 @@ public class FireworkDataBase<T> implements SimpleSynchronousResourceReloadListe
         this.ID = new Identifier(SimpleFirework.MOD_ID, type);
     }
 
-
     @Override
     public Identifier getFabricId() {
         return ID;

@@ -3,7 +3,6 @@ package com.unrealdinnerbone.simplefireworks;
 import com.unrealdinnerbone.simplefireworks.api.FireworkWrapper;
 import com.unrealdinnerbone.simplefireworks.api.firework.Firework;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.network.PacketContext;
 import net.fabricmc.fabric.impl.network.ClientSidePacketRegistryImpl;
 import net.minecraft.client.MinecraftClient;

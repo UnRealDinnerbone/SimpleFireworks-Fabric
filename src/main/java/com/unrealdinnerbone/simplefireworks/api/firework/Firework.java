@@ -1,6 +1,5 @@
 package com.unrealdinnerbone.simplefireworks.api.firework;
 
-
 import java.util.ArrayList;
 import java.util.List;
 

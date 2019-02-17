@@ -1,13 +1,11 @@
 package com.unrealdinnerbone.simplefireworks.command.spawn;
+
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import com.unrealdinnerbone.simplefireworks.SimpleFirework;
 import com.unrealdinnerbone.simplefireworks.api.SimpleFireworkAPI;
-import com.unrealdinnerbone.simplefireworks.api.firework.Firework;
-import com.unrealdinnerbone.simplefireworks.lib.FireworkUtils;
 import net.minecraft.command.arguments.EntityArgumentType;
 import net.minecraft.command.arguments.ResourceLocationArgumentType;
 import net.minecraft.command.arguments.Vec3ArgumentType;
@@ -16,7 +14,6 @@ import net.minecraft.server.command.CommandSource;
 import net.minecraft.server.command.ServerCommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.TranslatableTextComponent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 

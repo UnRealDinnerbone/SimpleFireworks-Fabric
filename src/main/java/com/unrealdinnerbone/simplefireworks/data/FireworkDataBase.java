@@ -2,7 +2,6 @@ package com.unrealdinnerbone.simplefireworks.data;
 
 import com.google.gson.Gson;
 import com.unrealdinnerbone.simplefireworks.SimpleFirework;
-import com.unrealdinnerbone.simplefireworks.api.FireworkWrapper;
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
 import net.minecraft.resource.Resource;
 import net.minecraft.resource.ResourceManager;
@@ -11,8 +10,6 @@ import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 
 public class FireworkDataBase<T> implements SimpleSynchronousResourceReloadListener {

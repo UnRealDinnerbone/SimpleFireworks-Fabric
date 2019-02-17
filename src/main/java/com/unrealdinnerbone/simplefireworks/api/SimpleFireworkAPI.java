@@ -4,10 +4,7 @@ import com.unrealdinnerbone.simplefireworks.SimpleFirework;
 import com.unrealdinnerbone.simplefireworks.api.firework.Firework;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.server.PlayerStream;
-import net.fabricmc.fabric.impl.network.ServerSidePacketRegistryImpl;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.packet.CustomPayloadS2CPacket;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
@@ -16,13 +13,9 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.PacketByteBuf;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BoundingBox;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.core.jmx.Server;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class SimpleFireworkAPI {

@@ -1,4 +1,4 @@
-package com.unrealdinnerbone.simplefireworks.api.firework;
+package com.unrealdinnerbone.simplefireworks.api;
 
 public enum ExplodeEffect
 {

@@ -1,7 +1,6 @@
 package com.unrealdinnerbone.simplefireworks.api;
 
 import com.unrealdinnerbone.simplefireworks.SimpleFirework;
-import com.unrealdinnerbone.simplefireworks.api.firework.Firework;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.server.PlayerStream;
 import net.minecraft.client.network.packet.CustomPayloadS2CPacket;

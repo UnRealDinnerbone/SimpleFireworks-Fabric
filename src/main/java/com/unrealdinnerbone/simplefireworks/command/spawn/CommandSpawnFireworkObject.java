@@ -7,7 +7,7 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.unrealdinnerbone.simplefireworks.SimpleFirework;
 import com.unrealdinnerbone.simplefireworks.api.SimpleFireworkAPI;
 import net.minecraft.command.arguments.EntityArgumentType;
-import net.minecraft.command.arguments.ResourceLocationArgumentType;
+import net.minecraft.command.arguments.IdentifierArgumentType;
 import net.minecraft.command.arguments.Vec3ArgumentType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.command.CommandSource;
@@ -25,7 +25,7 @@ public class CommandSpawnFireworkObject {
         commandDispatcher.register(ServerCommandManager.literal("fireworks")
                 .requires((commandSource) -> commandSource.hasPermissionLevel(2))
                 .then(ServerCommandManager.literal("spawn")
-                        .then(ServerCommandManager.argument("id", ResourceLocationArgumentType.create())
+                        .then(ServerCommandManager.argument("id", IdentifierArgumentType.create())
                                 .suggests((context, suggestionsBuilder) -> CommandSource.suggestIdentifiers(SimpleFirework.getFireworkIDs(), suggestionsBuilder))
                                 .then(ServerCommandManager.argument("pos", Vec3ArgumentType.create())
                                         .executes(CommandSpawnFireworkObject::spawnFirework)
@@ -35,13 +35,13 @@ public class CommandSpawnFireworkObject {
                                                                 .executes(CommandSpawnFireworkObject::spawnFireworkWithSpeed)))))))
                 .then(ServerCommandManager.literal("give")
                         .then(ServerCommandManager.argument("player", EntityArgumentType.multiplePlayer())
-                            .then(ServerCommandManager.argument("id", ResourceLocationArgumentType.create())
+                            .then(ServerCommandManager.argument("id", IdentifierArgumentType.create())
                             .suggests((context, suggestionsBuilder) -> CommandSource.suggestIdentifiers(SimpleFirework.getFireworkIDs(), suggestionsBuilder))
                                     .executes(CommandSpawnFireworkObject::giveFirework)))));
     }
 
     private static int giveFirework(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
-        Identifier identifier = ResourceLocationArgumentType.getIdentifierArgument(context,"id");
+        Identifier identifier = IdentifierArgumentType.getIdentifierArgument(context,"id");
         Collection<ServerPlayerEntity> serverPlayerEntities = EntityArgumentType.method_9310(context, "player");
         ItemStack itemStack = SimpleFireworkAPI.getFireworkItemStack(SimpleFirework.getFireworkFromID(identifier));
         serverPlayerEntities.forEach(serverPlayerEntity -> serverPlayerEntity.inventory.insertStack(itemStack));
@@ -50,14 +50,14 @@ public class CommandSpawnFireworkObject {
 
     private static int spawnFireworkWithSpeed(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
         BlockPos blockPos = new BlockPos(Vec3ArgumentType.getVec3Argument(context, "pos"));
-        Identifier identifier = ResourceLocationArgumentType.getIdentifierArgument(context,"id");
+        Identifier identifier = IdentifierArgumentType.getIdentifierArgument(context,"id");
         SimpleFireworkAPI.spawnFirework(context.getSource().getWorld(), identifier, blockPos, DoubleArgumentType.getDouble(context, "xSpeed"), DoubleArgumentType.getDouble(context, "ySpeed"), DoubleArgumentType.getDouble(context, "zSpeed"));
         return 0;
     }
 
     private static int spawnFirework(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
         BlockPos blockPos = new BlockPos(Vec3ArgumentType.getVec3Argument(context, "pos"));
-        Identifier identifier = ResourceLocationArgumentType.getIdentifierArgument(context, "id");
+        Identifier identifier = IdentifierArgumentType.getIdentifierArgument(context, "id");
         SimpleFireworkAPI.spawnFirework(context.getSource().getWorld(), identifier, blockPos, 1, 1, 1);
         return 0;
     }

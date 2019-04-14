@@ -1,10 +1,24 @@
 {
+  "schemaVersion": 1,
   "id": "simplefireworks",
-  "name": "Simple Fireworks",
   "version": "1.0.0",
-  "side": "universal",
-  "initializers": [
-    "com.unrealdinnerbone.simplefireworks.SimpleFirework",
-    "com.unrealdinnerbone.simplefireworks.SimpleFireworksClient"
-  ]
+  "name": "Simple Fireworks",
+  "description": "Add Fireworks with data packs",
+  "authors": [
+    "UnRealDinnerbone"
+  ],
+  "icon": "assets/simplefireworks/logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.unrealdinnerbone.simplefireworks.SimpleFirework"
+    ],
+    "client" : [
+      "com.unrealdinnerbone.simplefireworks.SimpleFireworksClient"
+    ]
+  },
+  "requires": {
+    "fabricloader": "=>0.4.0",
+    "fabric": "*"
+  }
 }

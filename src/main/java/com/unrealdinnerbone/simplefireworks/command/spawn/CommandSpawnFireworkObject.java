@@ -10,8 +10,8 @@ import net.minecraft.command.arguments.EntityArgumentType;
 import net.minecraft.command.arguments.IdentifierArgumentType;
 import net.minecraft.command.arguments.Vec3ArgumentType;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.CommandSource;
-import net.minecraft.server.command.ServerCommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
@@ -22,42 +22,42 @@ import java.util.Collection;
 public class CommandSpawnFireworkObject {
 
     public static void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
-        commandDispatcher.register(ServerCommandManager.literal("fireworks")
+        commandDispatcher.register(CommandManager.literal("fireworks")
                 .requires((commandSource) -> commandSource.hasPermissionLevel(2))
-                .then(ServerCommandManager.literal("spawn")
-                        .then(ServerCommandManager.argument("id", IdentifierArgumentType.create())
+                .then(CommandManager.literal("spawn")
+                        .then(CommandManager.argument("id", IdentifierArgumentType.create())
                                 .suggests((context, suggestionsBuilder) -> CommandSource.suggestIdentifiers(SimpleFirework.getFireworkIDs(), suggestionsBuilder))
-                                .then(ServerCommandManager.argument("pos", Vec3ArgumentType.create())
+                                .then(CommandManager.argument("pos", Vec3ArgumentType.create())
                                         .executes(CommandSpawnFireworkObject::spawnFirework)
-                                        .then(ServerCommandManager.argument("xSpeed", DoubleArgumentType.doubleArg())
-                                                .then(ServerCommandManager.argument("ySpeed", DoubleArgumentType.doubleArg())
-                                                        .then(ServerCommandManager.argument("zSpeed", DoubleArgumentType.doubleArg())
+                                        .then(CommandManager.argument("xSpeed", DoubleArgumentType.doubleArg())
+                                                .then(CommandManager.argument("ySpeed", DoubleArgumentType.doubleArg())
+                                                        .then(CommandManager.argument("zSpeed", DoubleArgumentType.doubleArg())
                                                                 .executes(CommandSpawnFireworkObject::spawnFireworkWithSpeed)))))))
-                .then(ServerCommandManager.literal("give")
-                        .then(ServerCommandManager.argument("player", EntityArgumentType.multiplePlayer())
-                            .then(ServerCommandManager.argument("id", IdentifierArgumentType.create())
+                .then(CommandManager.literal("give")
+                        .then(CommandManager.argument("player", EntityArgumentType.players())
+                            .then(CommandManager.argument("id", IdentifierArgumentType.create())
                             .suggests((context, suggestionsBuilder) -> CommandSource.suggestIdentifiers(SimpleFirework.getFireworkIDs(), suggestionsBuilder))
                                     .executes(CommandSpawnFireworkObject::giveFirework)))));
     }
 
     private static int giveFirework(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
-        Identifier identifier = IdentifierArgumentType.getIdentifierArgument(context,"id");
-        Collection<ServerPlayerEntity> serverPlayerEntities = EntityArgumentType.method_9310(context, "player");
+        Identifier identifier = IdentifierArgumentType.getIdentifier(context,"id");
+        Collection<ServerPlayerEntity> serverPlayerEntities = EntityArgumentType.getPlayers(context, "player");
         ItemStack itemStack = SimpleFireworkAPI.getFireworkItemStack(SimpleFirework.getFireworkFromID(identifier));
         serverPlayerEntities.forEach(serverPlayerEntity -> serverPlayerEntity.inventory.insertStack(itemStack));
         return 0;
     }
 
     private static int spawnFireworkWithSpeed(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
-        BlockPos blockPos = new BlockPos(Vec3ArgumentType.getVec3Argument(context, "pos"));
-        Identifier identifier = IdentifierArgumentType.getIdentifierArgument(context,"id");
+        BlockPos blockPos = new BlockPos(Vec3ArgumentType.getVec3(context, "pos"));
+        Identifier identifier = IdentifierArgumentType.getIdentifier(context,"id");
         SimpleFireworkAPI.spawnFirework(context.getSource().getWorld(), identifier, blockPos, DoubleArgumentType.getDouble(context, "xSpeed"), DoubleArgumentType.getDouble(context, "ySpeed"), DoubleArgumentType.getDouble(context, "zSpeed"));
         return 0;
     }
 
     private static int spawnFirework(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
-        BlockPos blockPos = new BlockPos(Vec3ArgumentType.getVec3Argument(context, "pos"));
-        Identifier identifier = IdentifierArgumentType.getIdentifierArgument(context, "id");
+        BlockPos blockPos = new BlockPos(Vec3ArgumentType.getVec3(context, "pos"));
+        Identifier identifier = IdentifierArgumentType.getIdentifier(context, "id");
         SimpleFireworkAPI.spawnFirework(context.getSource().getWorld(), identifier, blockPos, 1, 1, 1);
         return 0;
     }

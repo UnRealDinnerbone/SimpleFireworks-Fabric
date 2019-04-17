@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+        gradlePluginPortal()
         jcenter()
         maven {
             name = 'Fabric'
@@ -11,7 +12,13 @@ buildscript {
     }
 }
 
+plugins {
+    id 'com.matthewprenger.cursegradle' version "1.1.2"
+}
+
 apply plugin: net.fabricmc.loom.LoomGradlePlugin
+
+apply from: 'https://raw.githubusercontent.com/MinecraftModDevelopment/Gradle-Collection/master/generic/markdown-git-changelog.gradle'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -31,4 +38,21 @@ dependencies {
     mappings "net.fabricmc:yarn:" + "${mappings_version}"
     modCompile "net.fabricmc:fabric-loader:" + "${loader_version}"
     modCompile "net.fabricmc:fabric:" + "${fabric_version}"
+}
+
+
+curseforge {
+    if (project.hasProperty('unreal_curse_api_key')){
+        apiKey = project.getProperty('unreal_curse_api_key')
+    }
+    project {
+        id = "${curseforge_id}"
+        changelog = getGitChangelog
+        changelogType = 'markdown'
+        releaseType = 'release'
+        addGameVersion '1.14-Snapshot'
+    }
+    options{
+        forgeGradleIntegration = false
+    }
 }

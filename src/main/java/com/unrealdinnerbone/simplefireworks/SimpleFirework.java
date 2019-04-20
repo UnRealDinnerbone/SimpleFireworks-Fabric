@@ -8,18 +8,21 @@ import net.fabricmc.fabric.api.registry.CommandRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.util.Identifier;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Set;
 
 public class SimpleFirework implements ModInitializer {
 
+    public static Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "simplefireworks";
     public static final Identifier SPAWN_FIREWORK = new Identifier(MOD_ID, "spawn_firework");
     private static final FireworkDataBase<FireworkWrapper> FIREWORK_DATA = new FireworkDataBase<>(FireworkWrapper.class, "fireworks");
 
     @Override
     public void onInitialize() {
-        System.out.println("Loading SimpleFireworks!");
+        LOGGER.info("[SimpleFireworks] Loading!");
         ResourceManagerHelper.get(ResourceType.DATA).registerReloadListener(FIREWORK_DATA);
         CommandRegistry.INSTANCE.register(false, CommandSpawnFireworkObject::register);
     }

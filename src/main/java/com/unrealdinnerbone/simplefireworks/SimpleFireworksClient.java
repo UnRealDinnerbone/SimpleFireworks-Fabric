@@ -34,7 +34,7 @@ public class SimpleFireworksClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        System.out.println("Loading SimpleFireworks Client!");
+        SimpleFirework.LOGGER.info("[SimpleFireworks Client] Loading!");
         ClientSidePacketRegistryImpl.INSTANCE.register(SPAWN_FIREWORK, this::handlePacket);
 
     }

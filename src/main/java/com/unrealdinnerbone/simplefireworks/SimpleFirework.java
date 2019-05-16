@@ -23,7 +23,7 @@ public class SimpleFirework implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("[SimpleFireworks] Loading!");
-        ResourceManagerHelper.get(ResourceType.DATA).registerReloadListener(FIREWORK_DATA);
+        ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(FIREWORK_DATA);
         CommandRegistry.INSTANCE.register(false, CommandSpawnFireworkObject::register);
     }
 

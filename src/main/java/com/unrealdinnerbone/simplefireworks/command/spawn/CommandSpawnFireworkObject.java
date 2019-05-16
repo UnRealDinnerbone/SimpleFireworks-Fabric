@@ -4,6 +4,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import com.mojang.brigadier.tree.LiteralCommandNode;
 import com.unrealdinnerbone.simplefireworks.SimpleFirework;
 import com.unrealdinnerbone.simplefireworks.api.SimpleFireworkAPI;
 import net.minecraft.command.arguments.EntityArgumentType;
@@ -35,9 +36,9 @@ public class CommandSpawnFireworkObject {
                                                                 .executes(CommandSpawnFireworkObject::spawnFireworkWithSpeed)))))))
                 .then(CommandManager.literal("give")
                         .then(CommandManager.argument("player", EntityArgumentType.players())
-                            .then(CommandManager.argument("id", IdentifierArgumentType.create())
-                            .suggests((context, suggestionsBuilder) -> CommandSource.suggestIdentifiers(SimpleFirework.getFireworkIDs(), suggestionsBuilder))
-                                    .executes(CommandSpawnFireworkObject::giveFirework)))));
+                                .then(CommandManager.argument("id", IdentifierArgumentType.create())
+                                        .suggests((context, suggestionsBuilder) -> CommandSource.suggestIdentifiers(SimpleFirework.getFireworkIDs(), suggestionsBuilder))
+                                        .executes(CommandSpawnFireworkObject::giveFirework)))));
     }
 
     private static int giveFirework(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {

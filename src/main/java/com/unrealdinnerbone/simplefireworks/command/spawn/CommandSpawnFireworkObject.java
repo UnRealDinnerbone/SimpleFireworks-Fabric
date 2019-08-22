@@ -26,9 +26,9 @@ public class CommandSpawnFireworkObject {
         commandDispatcher.register(CommandManager.literal("fireworks")
                 .requires((commandSource) -> commandSource.hasPermissionLevel(2))
                 .then(CommandManager.literal("spawn")
-                        .then(CommandManager.argument("id", IdentifierArgumentType.create())
+                        .then(CommandManager.argument("id", IdentifierArgumentType.identifier())
                                 .suggests((context, suggestionsBuilder) -> CommandSource.suggestIdentifiers(SimpleFirework.getFireworkIDs(), suggestionsBuilder))
-                                .then(CommandManager.argument("pos", Vec3ArgumentType.create())
+                                .then(CommandManager.argument("pos", Vec3ArgumentType.vec3())
                                         .executes(CommandSpawnFireworkObject::spawnFirework)
                                         .then(CommandManager.argument("xSpeed", DoubleArgumentType.doubleArg())
                                                 .then(CommandManager.argument("ySpeed", DoubleArgumentType.doubleArg())
@@ -36,7 +36,7 @@ public class CommandSpawnFireworkObject {
                                                                 .executes(CommandSpawnFireworkObject::spawnFireworkWithSpeed)))))))
                 .then(CommandManager.literal("give")
                         .then(CommandManager.argument("player", EntityArgumentType.players())
-                                .then(CommandManager.argument("id", IdentifierArgumentType.create())
+                                .then(CommandManager.argument("id", IdentifierArgumentType.identifier())
                                         .suggests((context, suggestionsBuilder) -> CommandSource.suggestIdentifiers(SimpleFirework.getFireworkIDs(), suggestionsBuilder))
                                         .executes(CommandSpawnFireworkObject::giveFirework)))));
     }

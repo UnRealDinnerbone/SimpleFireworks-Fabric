@@ -13,7 +13,7 @@ buildscript {
 }
 
 plugins {
-    id 'com.matthewprenger.cursegradle' version "1.1.2"
+    id 'com.matthewprenger.cursegradle' version "1.4.0"
 }
 
 apply plugin: net.fabricmc.loom.LoomGradlePlugin
@@ -29,8 +29,17 @@ version = buildVersion + "-universal"
 
 archivesBaseName = "${mod_name}"
 
-minecraft {
+processResources {
+    inputs.property "version", project.version
 
+    from(sourceSets.main.resources.srcDirs) {
+        include "fabric.mod.json"
+        expand "version": project.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude "fabric.mod.json"
+    }
 }
 
 dependencies {
@@ -52,9 +61,10 @@ curseforge {
         releaseType = 'release'
         addGameVersion "${minecraft_version}"
         addGameVersion "Java 8"
+        addGameVersion "Fabric"
         mainArtifact(file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))
         relations {
-            requiredDependency 'fabric'
+            requiredDependency 'fabric-api'
         }
         afterEvaluate {
             uploadTask.dependsOn(remapJar)

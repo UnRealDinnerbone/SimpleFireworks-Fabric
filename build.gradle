@@ -59,7 +59,7 @@ curseforge {
         changelog = getGitChangelog
         changelogType = 'markdown'
         releaseType = 'release'
-        addGameVersion "${minecraft_version}"
+        addGameVersion project.hasProperty("curseforge_minecraft_version") ? "${curseforge_minecraft_version}" : "${minecraft_version}"
         addGameVersion "Java 8"
         addGameVersion "Fabric"
         mainArtifact(file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))

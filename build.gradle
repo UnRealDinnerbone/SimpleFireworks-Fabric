@@ -24,10 +24,10 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 def ENV = System.getenv()
-def buildVersion = ENV.BUILD_NUMBER ? "${mod_verison}.${ENV.BUILD_NUMBER}" : "${mod_verison}-beta"
-version = "${minecraft_version}-" + buildVersion + "-universal"
+def buildNumber = ENV.BUILD_NUMBER ? "${ENV.BUILD_NUMBER}" : "0"
+version = "${mod_version}+build." + buildNumber
 
-archivesBaseName = "${mod_name}-Fabirc"
+archivesBaseName = "${mod_name}-Fabric-" + "${minecraft_version}"
 
 processResources {
     inputs.property "version", project.version

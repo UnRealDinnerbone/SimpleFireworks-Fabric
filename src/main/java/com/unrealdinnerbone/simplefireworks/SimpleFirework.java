@@ -6,11 +6,14 @@ import com.unrealdinnerbone.simplefireworks.data.FireworkDataBase;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.CommandRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.minecraft.data.DataCache;
+import net.minecraft.data.DataProvider;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
 import java.util.Set;
 
 public class SimpleFirework implements ModInitializer {
